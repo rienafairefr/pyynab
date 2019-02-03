@@ -1,6 +1,17 @@
 
 OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v3.3.4
 
+deploy_pypi:
+ifdef VERSION
+	rm -rf dist
+
+	python3 api/setup.py sdist bdist_wheel
+
+	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
+else
+	@echo "not tagged"
+endif
+
 api: openapi.yaml
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local ${OPENAPIGEN_IMAGE} \
 	           generate -i /local/openapi.yaml \
