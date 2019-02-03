@@ -1,4 +1,4 @@
-
+VERSION ?= $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TAG_NAME),$(TAG_NAME),dev))
 OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v3.3.4
 
 deploy_pypi:
