@@ -14,7 +14,7 @@ python:
 - 3.4
 - 2.7
 install:
-- pip install tox tox-travis pyYaml
+- pip install tox tox-travis pyYaml twine
 - pip install --upgrade setuptools
 - make api
 script:
