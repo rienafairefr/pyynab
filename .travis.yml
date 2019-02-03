@@ -15,6 +15,7 @@ python:
 - 2.7
 install:
 - pip install tox tox-travis pyYaml
+- pip install --upgrade setuptools
 - make api
 script:
 - tox --workdir api
