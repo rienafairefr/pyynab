@@ -5,7 +5,7 @@ deploy_pypi:
 ifdef VERSION
 	rm -rf dist
 
-	python3 api/setup.py sdist bdist_wheel
+	python api/setup.py sdist bdist_wheel
 
 	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
 else
@@ -27,4 +27,4 @@ openapi.yaml:
 	           -g openapi-yaml -o /local/openapi-yaml
 	cp openapi-yaml/openapi/openapi.yaml .
 	rm -rf openapi-yaml
-	python3 patch_openapi.py
+	python patch_openapi.py
