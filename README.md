@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/rienafairefr/pyynab.svg?branch=master)](https://travis-ci.org/rienafairefr/pyynab)
+[![Coverage Status](https://coveralls.io/repos/github/rienafairefr/pyynab/badge.svg?branch=master)](https://coveralls.io/github/rienafairefr/pyynab?branch=master)
+
 # pyynab
 Library to connnect to the You neeed a Budget Public API.
 
