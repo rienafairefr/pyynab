@@ -5,9 +5,9 @@ deploy_pypi:
 ifdef VERSION
 	rm -rf dist
 
-	python api/setup.py sdist bdist_wheel
+	cd api && python setup.py sdist bdist_wheel
 
-	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} dist/*
+	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} api/dist/*
 else
 	@echo "not tagged"
 endif
