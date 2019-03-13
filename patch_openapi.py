@@ -26,6 +26,16 @@ def main():
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_transaction_id']['nullable'] = True
     spec['components']['schemas']['TransactionDetail']['allOf'][1]['properties']['category_name']['nullable'] = True
     spec['components']['schemas']['MonthDetail']['allOf'][1]['properties']['categories']['nullable'] = True
+    spec['components']['schemas']['HybridTransaction']['allOf'][1]['properties']['payee_name']['maxLength'] = 50
+    spec['components']['schemas']['ScheduledTransactionDetail']['allOf'][1]['properties']['payee_name']['maxLength'] = 50
+    spec['components']['schemas']['TransactionDetail']['allOf'][1]['properties']['payee_name']['maxLength'] = 50
+    spec['components']['schemas']['SaveTransaction']['properties']['payee_name']['maxLength'] = 50
+
+    spec['components']['schemas']['TransactionSummary']['properties']['memo']['maxLength'] = 100
+    spec['components']['schemas']['SaveTransaction']['properties']['memo']['maxLength'] = 100
+    spec['components']['schemas']['ScheduledSubTransaction']['properties']['memo']['maxLength'] = 100
+    spec['components']['schemas']['ScheduledTransactionSummary']['properties']['memo']['maxLength'] = 100
+    spec['components']['schemas']['SubTransaction']['properties']['memo']['maxLength'] = 100
     try:
         spec['components']['schemas']['Category']['required'].remove('goal_type')
     except:
