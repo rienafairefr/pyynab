@@ -24,6 +24,7 @@ def main():
     spec['components']['schemas']['TransactionSummary']['properties']['matched_transaction_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_account_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_transaction_id']['nullable'] = True
+    spec['components']['schemas']['TransactionDetail']['allOf'][1]['properties']['category_name']['nullable'] = True
     spec['components']['schemas']['MonthDetail']['allOf'][1]['properties']['categories']['nullable'] = True
     try:
         spec['components']['schemas']['Category']['required'].remove('goal_type')

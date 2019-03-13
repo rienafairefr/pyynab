@@ -12,6 +12,10 @@ else
 	@echo "not tagged"
 endif
 
+clean:
+	rm -rf api
+	rm openapi.yaml
+
 api: openapi.yaml
 	docker run --rm --user `id -u`:`id -g` -v ${PWD}:/local ${OPENAPIGEN_IMAGE} \
 	           generate -i /local/openapi.yaml \
