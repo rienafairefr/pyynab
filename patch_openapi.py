@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import yaml
 
 
@@ -21,6 +22,7 @@ def main():
     spec['components']['schemas']['TransactionSummary']['properties']['import_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['memo']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['payee_id']['nullable'] = True
+    spec['components']['schemas']['SubTransaction']['properties']['payee_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['matched_transaction_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_account_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_transaction_id']['nullable'] = True
