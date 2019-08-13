@@ -7,7 +7,7 @@ ifdef VERSION
 
 	cd api && python setup.py sdist bdist_wheel
 
-	twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} api/dist/*
+	pipenv run twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} api/dist/*
 else
 	@echo "not tagged"
 endif
@@ -31,4 +31,4 @@ openapi.yaml:
 	           -g openapi-yaml -o /local/openapi-yaml
 	cp openapi-yaml/openapi/openapi.yaml .
 	rm -rf openapi-yaml
-	python patch_openapi.py
+	pipenv run python patch_openapi.py
