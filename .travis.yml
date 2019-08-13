@@ -14,7 +14,7 @@ python:
 - 3.4
 - 2.7
 install:
-- pip install --user pipenv
+- pip install pipenv
 - make api
 script:
 - pipenv run tox --workdir api
