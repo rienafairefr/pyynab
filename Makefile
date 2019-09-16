@@ -1,4 +1,4 @@
-VERSION ?= $(if $(TAG_NAME),$(TAG_NAME),dev)
+VERSION ?= $(shell python -c "from setuptools_scm import get_version;print(get_version())")
 OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v4.1.0
 
 deploy_pypi:
