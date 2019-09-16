@@ -34,8 +34,7 @@ jobs:
         pipenv run coveralls
     - name: Build package
       run: |
-        cd api
-        pipenv run setup.py sdist bdist_wheel
+        pipenv run python api/setup.py sdist bdist_wheel
     - name: Publish package to Test PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
