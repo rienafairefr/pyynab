@@ -1,6 +1,6 @@
-name: Python package
+name: Test Python package
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -32,18 +32,3 @@ jobs:
         COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
       run: |
         pipenv run coveralls
-    - name: Build package
-      run: |
-        pipenv run python api/setup.py sdist bdist_wheel
-    - name: Publish package to Test PyPI
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        user: __token__
-        password: ${{ secrets.test_pypi_password }}
-        repository_url: https://test.pypi.org/legacy/
-    - name: Publish package
-      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        user: __token__
-        password: ${{ secrets.pypi_password }}
