@@ -22,7 +22,7 @@ jobs:
         make api
     - name: Build package
       run: |
-        python api/setup.py sdist bdist_wheel
+        pipenv run python api/setup.py sdist bdist_wheel
     - name: Publish package to Test PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
