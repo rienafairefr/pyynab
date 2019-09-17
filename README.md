@@ -1,4 +1,4 @@
-![](https://github.com/rienafairefr/pyynab/workflows/Test%20Python%20package/badge.svg)
+![](https://github.com/rienafairefr/pyynab/workflows/Python%20package/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/rienafairefr/pyynab/badge.svg?branch=master)](https://coveralls.io/github/rienafairefr/pyynab?branch=master)
 
 # pyynab
