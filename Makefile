@@ -1,17 +1,6 @@
 VERSION ?= $(shell pipenv run python -c "from setuptools_scm import get_version;print(get_version())")
 OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v4.1.0
 
-deploy_pypi:
-ifdef VERSION
-	rm -rf dist
-
-	cd api && python setup.py sdist bdist_wheel
-
-	pipenv run twine upload -u ${PYPI_USER} -p ${PYPI_PASSWORD} api/dist/*
-else
-	@echo "not tagged"
-endif
-
 clean:
 	rm -rf api
 	rm openapi.yaml
