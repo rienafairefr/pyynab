@@ -24,9 +24,13 @@ jobs:
     - name: generate code
       run: |
         make api
-    - name: Build package
+    - name: Build package sdist
+      if: matrix.python-version == '2.7'
       run: |
-        pipenv run python api/setup.py sdist bdist_wheel
+        pipenv run python api/setup.py sdist
+    - name: Build package wheel
+      run: |
+        pipenv run python api/setup.py bdist_wheel
     - name: Publish package
       if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
