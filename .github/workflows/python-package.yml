@@ -25,20 +25,21 @@ jobs:
       run: cat poetry-installer-error-*.log
     - name: Install dependencies
       run: |
+        poetry config virtualenvs.create false
         poetry install
     - name: generate code
       run: |
         make api
-        poetry add -e api
+        pip install -r api/requirements.txt
+        pip install -r api/test-requirements.txt
     - name: Test with pytest
       run: |
-        poetry add ./api
-        poetry run pytest --cov=api
+        pytest --cov=api
     - name: Coveralls
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.coveralls_repo_token }}
       run: |
-        poetry run coveralls
+        coveralls
 
   publish:
 
@@ -60,6 +61,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        poetry config virtualenvs.create false
         poetry install
     - name: generate code
       run: |
@@ -67,16 +69,14 @@ jobs:
     - name: Build package sdist
       if: matrix.python-version == '3.9'
       run: |
-        cd api
-        poetry run python setup.py sdist
+        python api/setup.py sdist
     - name: Build package wheel
       run: |
-        cd api
-        poetry run python setup.py bdist_wheel
+        python api/setup.py bdist_wheel
     - name: Publish package
       if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.pypi_password }}
       run: |
-        poetry run twine upload api/dist/*
+        twine upload dist/*
