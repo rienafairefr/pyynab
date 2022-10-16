@@ -1,5 +1,5 @@
 VERSION ?= $(shell poetry run python -c "from setuptools_scm import get_version;print(get_version())")
-OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v4.1.0
+OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v6.2.0
 
 clean:
 	rm -rf api
