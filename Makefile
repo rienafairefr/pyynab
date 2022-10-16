@@ -1,4 +1,4 @@
-VERSION ?= $(shell pipenv run python -c "from setuptools_scm import get_version;print(get_version())")
+VERSION ?= $(shell poetry run python -c "from setuptools_scm import get_version;print(get_version())")
 OPENAPIGEN_IMAGE ?= openapitools/openapi-generator-cli:v4.1.0
 
 clean:
@@ -23,4 +23,4 @@ openapi.yaml:
 	           -g openapi-yaml -o /local/openapi-yaml
 	cp openapi-yaml/openapi/openapi.yaml .
 	rm -rf openapi-yaml
-	pipenv run python patch_openapi.py
+	poetry run python patch_openapi.py

@@ -4,7 +4,7 @@ import yaml
 
 def main():
     with open('openapi.yaml', 'r') as openapi:
-        spec = yaml.load(openapi)
+        spec = yaml.safe_load(openapi)
 
     for k, v in spec['components']['schemas'].items():
         for np, p in v.get('properties', {}).items():
