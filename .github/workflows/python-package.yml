@@ -29,8 +29,10 @@ jobs:
     - name: generate code
       run: |
         make api
+        poetry add -e api
     - name: Test with pytest
       run: |
+        poetry add ./api
         poetry run pytest --cov=api
     - name: Coveralls
       env:
