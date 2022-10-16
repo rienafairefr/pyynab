@@ -14,12 +14,8 @@ urllib3 = ">=1.15.1"
 
 [tool.poetry.dev-dependencies]
 pyyaml = "*"
-coverage = ">=4.0.3"
-randomize = ">=0.13"
-python-dotenv = "*"
 twine = "*"
 coveralls = "*"
-pytest-cov = "*"
 setuptools_scm = "*"
 
 [build-system]
