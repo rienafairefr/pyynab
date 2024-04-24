@@ -26,9 +26,9 @@ def main():
     spec['components']['schemas']['TransactionSummary']['properties']['matched_transaction_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_account_id']['nullable'] = True
     spec['components']['schemas']['TransactionSummary']['properties']['transfer_transaction_id']['nullable'] = True
-    spec['components']['schemas']['TransactionDetail_allOf']['properties']['category_name']['nullable'] = True
-    spec['components']['schemas']['MonthDetail_allOf']['properties']['categories']['nullable'] = True
-    spec['components']['schemas']['TransactionDetail_allOf']['properties']['payee_name']['nullable'] = True
+    #spec['components']['schemas']['TransactionDetail_allOf']['properties']['category_name']['nullable'] = True
+    #spec['components']['schemas']['MonthDetail_allOf']['properties']['categories']['nullable'] = True
+    #spec['components']['schemas']['TransactionDetail_allOf']['properties']['payee_name']['nullable'] = True
     spec['components']['schemas']['SubTransaction']['properties']['payee_id']['nullable'] = True
     spec['components']['schemas']['SubTransaction']['properties']['transfer_account_id']['nullable'] = True
 
@@ -38,7 +38,7 @@ def main():
         pass
     spec['components']['schemas']['Category']['properties']['goal_type'].pop('enum', None)
 
-    with open('openapi.yaml', 'w') as openapi:
+    with open('patched_openapi.yaml', 'w') as openapi:
         yaml.safe_dump(spec, openapi, indent=2)
 
 
