@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "pyynab"
-version = "0.9.0"
+version = "0.10.0"
 description = ""
-authors = ["Matthieu Berthomé <matthieu@mmea.fr>"]
+authors = ["Matthieu Berthomé <cheery.iron6016@fastmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -10,7 +10,7 @@ python = "^3.7"
 certifi = ">=14.05.14"
 six = ">=1.10"
 python-dateutil = ">=2.5.3"
-urllib3 = ">=1.15.1"
+urllib3 = "*"
 
 [tool.poetry.dev-dependencies]
 pyyaml = "*"
